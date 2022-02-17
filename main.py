@@ -18,6 +18,8 @@ config.read('config.ini')
 username = config['USERDATA']['username']
 password = config['USERDATA']['password']
 
+path = config['CHROMEDRIVER']['path']
+
 # Helper functions
 def check_exists_by_xpath(xpath):
     '''Takes in the XPath of an element, returns if it exists or not'''
@@ -42,7 +44,7 @@ chrome_options.add_argument('--disable-gpu')
 chrome_options.add_argument('--disable-dev-shm-usage')
 
 # Create a web driver object so we can run the "tests"
-driver = webdriver.Chrome(executable_path="/Users/gerardhernandez/Documents/aa_Coding/e-distribution-api/chromedriver", options= chrome_options )
+driver = webdriver.Chrome(executable_path= path, options= chrome_options )
 
 # Open the site to test.
 driver.get("https://zonaprivada.edistribucion.com/areaprivada/s/wp-reconnect-detail?cupsId=a0r2400000GyH9bAAF&vis=a5U2o0000018156EAA")  
